@@ -23,6 +23,7 @@ FOLD_MAPPING = {
 if __name__ == "__main__":
     df = pd.read_csv(TRAINING_DATA)
     df_test = pd.read_csv(TEST_DATA)
+    # Data which is in fold will go to training and other one will go to validation
     train_df = df[df.kfold.isin(FOLD_MAPPING.get(FOLD))].reset_index(drop = True)
     valid_df = df[df.kfold==FOLD].reset_index(drop=True)
 
